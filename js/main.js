@@ -3,10 +3,40 @@ $(function() {
 
   $('.page').focus();
 
+  $('.tooltip-trigger').each(function() {
+      $(this).qtip({
+        content: {
+          text: $('.qtip-content'),
+        },
+        position: {
+          my: 'top center',
+          at: 'bottom center',
+          adjust: {method: 'shift flip'},
+          container: $('.page'),
+          viewport: true
+        },
+        style: {
+          classes: 'tooltip',
+          tip: {
+            corner: true,
+            width: 12,
+            height: 7
+          }
+        },
+        show: {
+          event: 'click',
+          solo: true
+        },
+        hide: {
+          event: 'click unfocus',
+          fixed: true
+        }
+      });
+  });
+
   if (location.hash == "#slack"){
     $('.layout').addClass('overlay-open slack');
   }
-
 
   $('.js-join-newsletter').click(function(e) {
     e.preventDefault();
