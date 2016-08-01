@@ -1,0 +1,56 @@
+.connect-callout-wrapper {
+	.page-margins;
+	.std-xpadding;
+
+	text-align: left;
+
+	@media screen and (min-width: @breakpoint) { .display(flex); }
+
+	.item-connect {
+		.flex(1);
+		.std-xpadding;
+
+		padding-top: 1.875rem; //30px
+		padding-bottom: 1.875rem;
+
+		@media screen and (min-width: @breakpoint) {
+			padding-top: 2.5rem; //40px
+			padding-bottom: 2.5rem;
+		}
+
+		&:not(:last-child) { margin-bottom: 1rem; }
+
+		@media screen and (min-width: @breakpoint) {
+			&:not(:last-child) { margin-bottom: 0; }
+
+			margin-right: 5px;
+			& + .feature-callout {
+				margin-left: 5px;
+				margin-right: 0;
+			}
+		}
+
+		.image {
+			float: left;
+			margin-right: 1.25rem;
+			margin-top: .125rem;
+
+			@media screen and (min-width: @breakpoint) {
+				margin-right: 1.875rem;
+				margin-top: 0;
+			}
+		}
+
+		.meta { overflow: hidden; }
+
+		.title-section {
+			.type-light;
+			.font-m2;
+			margin-bottom: .5rem;
+		}
+
+		.desc-section {
+			margin-bottom: .75rem;
+		}
+	}
+}

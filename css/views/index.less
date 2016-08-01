@@ -58,175 +58,135 @@ section.list-features {
 	}
 }
 
-section.get-started {
-	background: @color-lightest;
-	padding: 2rem 0;
+.feature-callout-wrapper {
+	.page-margins;
+	.std-xpadding;
 
-	@media screen and (min-width: @breakpoint) {
-		padding: 3.5rem 0;
-		text-align: center;
-	}
+	text-align: left;
 
-	.headline-section {
-		.type-light;
-		.font-l1;
+	@media screen and (min-width: @breakpoint) { .display(flex); }
+
+	.feature-callout {
+		.flex(1);
 		.std-xpadding;
-		color: @color-primary;
-		margin-bottom: .5rem;
-		line-height: 1.1;
+
+		padding-top: 1.875rem; //30px
+		padding-bottom: 1.875rem;
 
 		@media screen and (min-width: @breakpoint) {
-			.font-l2;
+			padding-top: 2.5rem; //40px
+			padding-bottom: 2.5rem;
+		}
+
+		&:not(:last-child) { margin-bottom: 1rem; }
+
+		@media screen and (min-width: @breakpoint) {
+			&:not(:last-child) { margin-bottom: 0; }
+
+			margin-right: 5px;
+			& + .feature-callout {
+				margin-left: 5px;
+				margin-right: 0;
+			}
+		}
+
+		.image {
+			float: left;
+			margin-right: 1.25rem;
+			margin-top: .125rem;
+
+			@media screen and (min-width: @breakpoint) {
+				margin-right: 1.875rem;
+				margin-top: 0;
+			}
+		}
+
+		.meta { overflow: hidden; }
+
+		.title-highlight {
+			.type-light;
+			.font-m2;
+			margin-bottom: .5rem;
+		}
+
+		.desc-highlight {
 			margin-bottom: .75rem;
 		}
 	}
+}
 
-	.desc-section {
-		.std-xpadding;
-		margin-bottom: 2rem;
+.consultation-form {
+	.std-xpadding;
+
+	@media screen and (min-width: @breakpoint) {
 		max-width: 600px;
-
-		@media screen and (min-width: @breakpoint) {
-			margin-left: auto;
-			margin-right: auto;
-			margin-bottom: 3.5rem;
-		}
+		margin: 0 auto;
 	}
 
-	.feature-callout-wrapper {
-		.page-margins;
-		.std-xpadding;
+	//Styling
+	.fieldset-group {
+		margin-bottom: 1rem !important;
+		@media screen and (max-width: (@breakpoint - 1px )) { margin-bottom: 0 !important; }
 
-		text-align: left;
-
-		@media screen and (min-width: @breakpoint) { .display(flex); }
-
-		.feature-callout {
-			.flex(1);
-			.std-xpadding;
-
-		  padding-top: 1.875rem; //30px
-			padding-bottom: 1.875rem;
-
-		  @media screen and (min-width: @breakpoint) {
-				padding-top: 2.5rem; //40px
-			  padding-bottom: 2.5rem;
-		  }
-
-
-			background: @color-light;
-
-			&:not(:last-child) { margin-bottom: 1rem; }
-
+		.input-symbol {
 			@media screen and (min-width: @breakpoint) {
-				&:not(:last-child) { margin-bottom: 0; }
-
-				margin-right: 5px;
-				& + .feature-callout {
-					margin-left: 5px;
-					margin-right: 0;
-				}
-			}
-
-			.image {
-				float: left;
-				margin-right: 1.25rem;
-				margin-top: .125rem;
-
-				@media screen and (min-width: @breakpoint) {
-					margin-right: 1.875rem;
-					margin-top: 0;
-				}
-			}
-
-			.meta { overflow: hidden; }
-
-			.title-highlight {
-				.type-light;
-				.font-m2;
-				margin-bottom: .5rem;
-			}
-
-			.desc-highlight {
-				margin-bottom: .75rem;
+				&:first-child { margin-right: 5px; }
+				&:last-child { margin-left: 5px; }
 			}
 		}
 	}
 
-	.consultation-form {
-		.std-xpadding;
-
-		@media screen and (min-width: @breakpoint) {
-			max-width: 600px;
-			margin: 0 auto;
-		}
-
-	  //Styling
-    .fieldset-group {
-      margin-bottom: 1rem !important;
-      @media screen and (max-width: (@breakpoint - 1px )) { margin-bottom: 0 !important; }
-
-      .input-symbol {
-				@media screen and (min-width: @breakpoint) {
-					&:first-child { margin-right: 5px; }
-	        &:last-child { margin-left: 5px; }
-				}
-      }
-    }
-
-    .input-symbol,
-		.textarea,
-		.select {
-      margin-bottom: .25rem;
-      @media screen and (min-width: @breakpoint) { margin-bottom: 1rem; }
-    }
-
-		input,
-		textarea,
-		select { &:extend(input.secondary); }
-
-		select,
-		.select:before {
-			background: @color-lightest;
-		}
-
-		.select:before {
-			border-top: 1px solid @color-mediumlight;
-			border-bottom: 1px solid @color-mediumlight;
-			border-right: 1px solid @color-mediumlight;
-		}
-
-		//Layout
-		.fieldset-group {
-	    .display(flex);
-			.flex-direction(column);
-			@media screen and (min-width: @breakpoint) { .flex-direction(row); }
-
-	    margin-bottom: 1px;
-
-	    .input-symbol {
-	      @media screen and (min-width: @breakpoint) {
-	        .flex(1);
-	        margin-bottom: 0;
-	      }
-
-	      &:last-child { margin-left: 1px; }
-	    }
-	  }
-
-	  .input-symbol { vertical-align: top; }
+	.input-symbol,
+	.textarea,
+	.select {
+		margin-bottom: .25rem;
+		@media screen and (min-width: @breakpoint) { margin-bottom: 1rem; }
 	}
 
-	// for graphql support page
-	.desc-section + .consultation-form {
-		margin-top: -1rem;
+	input,
+	textarea,
+	select { &:extend(input.secondary); }
 
-		@media screen and (min-width: @breakpoint) {
-			margin-top: -2rem;
+	select,
+	.select:before {
+		background: @color-lightest;
+	}
 
+	.select:before {
+		border-top: 1px solid @color-mediumlight;
+		border-bottom: 1px solid @color-mediumlight;
+		border-right: 1px solid @color-mediumlight;
+	}
+
+	//Layout
+	.fieldset-group {
+		.display(flex);
+		.flex-direction(column);
+		@media screen and (min-width: @breakpoint) { .flex-direction(row); }
+
+		margin-bottom: 1px;
+
+		.input-symbol {
+			@media screen and (min-width: @breakpoint) {
+				.flex(1);
+				margin-bottom: 0;
+			}
+
+			&:last-child { margin-left: 1px; }
 		}
 	}
 
+	.input-symbol { vertical-align: top; }
+}
+
+// for graphql support page
+.desc-section + .consultation-form {
+	margin-top: -1rem;
+
+	@media screen and (min-width: @breakpoint) {
+		margin-top: -2rem;
+
+	}
 }
 
 footer {

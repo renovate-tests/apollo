@@ -1,5 +1,3 @@
-
-
 .list {
   overflow: hidden;
 
@@ -64,28 +62,56 @@
   }
 }
 
-.empty-item {
-	.position(absolute, 50%, 0, auto, 0);
-	.transform(translateY(-50%));
-	text-align: center;
+.list-users-wrapper {
+  .page-margins;
+  .std-xpadding;
+}
 
-	.title-empty {
-		.type-light;
-		color: @color-dark;
-		margin-bottom: .25rem;
+.list-users {
+  .clearfix;
+  .inline-block-whitespace;
 
-		.font-m1;
-		@media screen and (min-width: @breakpoint) {
-			.font-m2;
-		}
-	}
+  margin: 0 -1rem 1rem;
+  @media screen and (min-width: @breakpoint) {
+    margin-bottom: 2rem;
+  }
 
-	.subtitle-empty {
-		color: @color-mediumdark;
+  .item-user {
+    display: inline-block;
+    margin: 0 1rem 1rem;
 
-		.font-s1;
-		@media screen and (min-width: @breakpoint) {
-			.font-s2;
-		}
-	}
+    @media screen and (min-width: @breakpoint) {
+      margin-bottom: 0;
+    }
+
+    .avatar {
+      float: left;
+      margin-right: 1rem;
+
+      @media screen and (min-width: @breakpoint) {
+        float: none;
+        margin-bottom: .5rem;
+        margin-right: 0;
+      }
+    }
+
+    .meta {
+      overflow: hidden;
+      display: block;
+    }
+
+    .nicename {
+      .type-semibold;
+      display: block;
+    }
+
+    .username {
+      .font-s2;
+      .type-semibold;
+      display: block;
+      line-height: 1;
+
+      &:not(.link) { color: @color-mediumdark; }
+    }
+  }
 }
