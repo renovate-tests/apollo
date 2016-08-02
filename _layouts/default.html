@@ -66,34 +66,36 @@
 
         <footer>
           <div class="list-contact">
-            <a class="title-contact link tertiary js-join-newsletter" style="text-decoration:none" href=""><div class="item-contact">
-              <span class="icon-email image"></span>
-              <div class="meta" style="font-weight:600;">
-                Join the newsletter
-                <div class="desc-contact" style="font-weight:400;">Sign up for email updates</div>
-              </div></a>
-            </div>
-            <a class="title-contact link tertiary js-join-slack" style="text-decoration:none" href=""><div class="item-contact">
+            <a class="item-contact js-join-newsletter" href="">
+              <span class="">
+                <span class="icon-email image"></span>
+                <span class="meta">
+                  <span class="title-contact">Join the newsletter</span>
+                  <span class="desc-contact">Sign up for email updates</span>
+              </span>
+            </a>
+            <a class="item-contact js-join-slack" href="">
               <img src="img/logo-slack.svg" class="image"/>
-              <div class="meta" style="font-weight:600;">
-                Chat about Apollo
-                <div class="desc-contact" style="font-weight:400;">Join the Slack channel</div>
-              </div>
-            </div></a>
-            <a class="title-contact link tertiary" style="text-decoration:none" href="{{ site.url_blog}}" target="_blank" ><div class="item-contact">
+              <span class="meta" style="font-weight:600;">
+                <span class="title-contact">Chat about Apollo</span>
+                <div class="desc-contact">Join the Slack channel</div>
+              </span>
+            </a>
+            <a class="item-contact" href="{{ site.url_blog}}" target="_blank" >
               <img src="img/logo-medium.svg" class="image"/>
-              <div class="meta" style="font-weight:600;">
-                Read the blog
-                <div class="desc-contact" style="font-weight:400;">Articles on Medium</div>
-              </div></a>
-            </div>
-             <a class="title-contact link tertiary" style="text-decoration:none" href="https://twitter.com/{{ site.twitter_username }}" target="_blank"> <div class="item-contact">
-            <span class="icon-twitter image"></span>
-              <div class="meta" style="font-weight:600;">
-                Follow on Twitter
-                <div class="desc-contact" style="font-weight:400;">Tweets from the team</div>
-              </div></a>
-            </div>
+              <span class="meta">
+                <span class="title-contact">Read the blog</span>
+                <span class="desc-contact">Articles on Medium</span>
+              </span>
+            </a>
+
+             <a class="item-contact" href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+              <span class="icon-twitter image"></span>
+              <span class="meta">
+                <span class="title-contact">Follow on Twitter<span>
+                <span class="desc-contact">Tweets from the team</span>
+              </span>
+            </a>
           </div>
           <div class="btm-cap">
             <a href="https://github.com/{{ site.github_username }}" class="link tertiary">View on Github</a><br>
