@@ -74,15 +74,19 @@
   margin: 0 -1rem 1rem;
   @media screen and (min-width: @breakpoint) {
     margin-bottom: 2rem;
+    margin-top: 1.5rem;
   }
 
   .item-user {
-    display: inline-block;
-    margin: 0 1rem 1rem;
-
+    display: block;
+    overflow: auto;
     @media screen and (min-width: @breakpoint) {
-      margin-bottom: 0;
+      display: inline-block;
+      vertical-align: top;
     }
+
+    margin: 0 1rem 1rem;
+    @media screen and (min-width: @breakpoint) { margin-bottom: 1.5rem; }
 
     .avatar {
       float: left;
@@ -107,11 +111,13 @@
 
     .username {
       .font-s2;
-      .type-semibold;
       display: block;
       line-height: 1;
 
-      &:not(.link) { color: @color-mediumdark; }
+      &:not(.link) {
+        .type-semibold;
+        color: @color-mediumdark;
+      }
     }
   }
 }

@@ -1,56 +1,51 @@
 .connect-callout-wrapper {
 	.page-margins;
 	.std-xpadding;
-
+	.inline-block-whitespace;
+	padding-top: 1rem;
 	text-align: left;
 
-	@media screen and (min-width: @breakpoint) { .display(flex); }
-
 	.item-connect {
-		.flex(1);
-		.std-xpadding;
-
-		padding-top: 1.875rem; //30px
-		padding-bottom: 1.875rem;
+		display: inline-block;
+		vertical-align: top;
+		width: 100%;
 
 		@media screen and (min-width: @breakpoint) {
-			padding-top: 2.5rem; //40px
-			padding-bottom: 2.5rem;
+			padding-bottom: 1.875rem; //30px
+			width: 50%;
+
+			&:nth-child(odd) { padding-right: 1.875rem; } //30px
+			&:nth-child(even) { padding-left: 1.875rem; } //30px
 		}
 
-		&:not(:last-child) { margin-bottom: 1rem; }
+		&:not(:last-child) { margin-bottom: 1.5rem; }
 
 		@media screen and (min-width: @breakpoint) {
 			&:not(:last-child) { margin-bottom: 0; }
-
-			margin-right: 5px;
-			& + .feature-callout {
-				margin-left: 5px;
-				margin-right: 0;
-			}
 		}
 
 		.image {
-			float: left;
-			margin-right: 1.25rem;
-			margin-top: .125rem;
+			display: none;
 
 			@media screen and (min-width: @breakpoint) {
-				margin-right: 1.875rem;
+				display: block;
+				float: left;
+				margin-right: 1.25rem;
 				margin-top: 0;
+				width: 5rem;
 			}
 		}
 
 		.meta { overflow: hidden; }
 
-		.title-section {
+		.title-item {
 			.type-light;
 			.font-m2;
 			margin-bottom: .5rem;
 		}
 
-		.desc-section {
-			margin-bottom: .75rem;
+		.link {
+			.font-s2;
 		}
 	}
 }
