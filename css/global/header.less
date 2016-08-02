@@ -18,13 +18,14 @@ header {
 
 	&.short {
 		padding-top: 7.5rem;
+		padding-bottom: 5rem;
+		width: 100%;
+
 		@media screen and (min-width: @breakpoint) {
+			min-height: 400px;
 			padding-top: 9rem;
 			padding-bottom: 5rem;
 		}
-
-		min-height: 400px;
-		width: 100%;
 	}
 
 	.title-page {
@@ -42,15 +43,16 @@ header {
 	.subtitle-page {
 		.font-s3;
 		line-height: 26px;
-		margin-bottom: 1.5rem;
-
-		display: inline-block;
+		margin-bottom: 1rem;
 		max-width: 600px;
 
 		@media screen and (min-width: @breakpoint) {
 			.font-m2;
 			.type-light;
 			line-height: 28px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 1.5rem;
 		}
 	}
 
@@ -112,7 +114,6 @@ header.home {
 }
 
 header.support {
-	color: @color-lightest;
 	.background-image( linear-gradient(160deg, #4a3a55 0%, #7b5f62 100%) );
 
 	&:after {
@@ -175,5 +176,36 @@ header.support {
 		.desc-section {
 			color: @color-lighter;
 		}
+	}
+}
+
+header.contribute {
+	.background-image( linear-gradient(170deg, #132e5a 0%, #61395e 100%) );
+
+	&:before {
+		.position(absolute, 0,0,0,0);
+		.background-image( url('img/bg-image-network.svg'));
+
+		background-repeat: no-repeat;
+		background-position: center center;
+		content: '';
+		z-index: 0;
+	}
+
+	&:before {
+		opacity: .05;
+		background-size: 100%;
+		@media screen and (min-width: @breakpoint) {
+			background-size: 100%;
+		}
+	}
+
+	.pitch {
+		.page-margins;
+		.std-xpadding;
+		position: relative;
+		z-index: 1;
+
+		@media screen and (min-width: @breakpoint) { text-align: center; }
 	}
 }
