@@ -57,60 +57,45 @@ section.list-features {
 	}
 }
 
-.feature-callout-wrapper {
-	.page-margins;
-	.std-xpadding;
+.carousel {
 
-	text-align: left;
+	.picker-carousel {
+		.inline-block-whitespace;
 
-	@media screen and (min-width: @breakpoint) { .display(flex); }
+		.item-picker {
+			display: inline-block;
+			margin: 0 .625rem
+			height: 4rem;
+			width: 4rem;
 
-	.feature-callout {
-		.flex(1);
-		.std-xpadding;
+			&.active,
+			&:hover {
+				background: @color-lighter;
 
-		padding-top: 1.875rem; //30px
-		padding-bottom: 1.875rem;
+				.title-item { color: @color-darkest; }
+			}
 
-		@media screen and (min-width: @breakpoint) {
-			padding-top: 2.5rem; //40px
-			padding-bottom: 2.5rem;
-		}
+			.image {
+				display: inline-block;
+				height: auto;
+				margin-bottom: .125rem;
+				margin-top: .5rem;
+				vertical-align: top;
+				width: 2rem;
+			}
 
-		&:not(:last-child) { margin-bottom: 1rem; }
-
-		@media screen and (min-width: @breakpoint) {
-			&:not(:last-child) { margin-bottom: 0; }
-
-			margin-right: 5px;
-			& + .feature-callout {
-				margin-left: 5px;
-				margin-right: 0;
+			.title-item {
+				.font-s1;
+				.type-semibold;
+				color: @color-medium;
 			}
 		}
+	}
 
-		.image {
-			float: left;
-			margin-right: 1.25rem;
-			margin-top: .125rem;
-
-			@media screen and (min-width: @breakpoint) {
-				margin-right: 1.875rem;
-				margin-top: 0;
-			}
-		}
-
-		.meta { overflow: hidden; }
-
-		.title-highlight {
-			.type-light;
-			.font-m2;
-			margin-bottom: .5rem;
-		}
-
-		.desc-highlight {
-			margin-bottom: .75rem;
-		}
+	.slides-carousel {
+		text-align: left;
+		&:before {}
+		&:after {}
 	}
 }
 
