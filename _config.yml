@@ -27,3 +27,9 @@ url_slack: http://slack.apollostack.com
 # Social
 twitter_username: apollostack
 github_username:  apollostack
+
+exclude:
+  - node_modules
+  - _posts
+  - gruntfile.js
+  - npm-debug.log
