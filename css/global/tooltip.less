@@ -1,5 +1,11 @@
 span.tooltip-trigger { display: inline-block; }
 
+// The qtip-content inside the trigger is what's copied into the global
+// tooltip that's put on top of everything. We aren't supposed to see it.
+.tooltip-trigger .qtip-content {
+  display: none;
+}
+
 .tooltip {
   padding: 0 1rem;
   border: none;
@@ -47,7 +53,7 @@ span.tooltip-trigger { display: inline-block; }
       }
     }
 
-    
+
     // global/list.less shim
     .list {
       width: 180px;

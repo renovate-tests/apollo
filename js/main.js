@@ -6,7 +6,7 @@ $(function() {
   $('.tooltip-trigger').each(function() {
       $(this).qtip({
         content: {
-          text: $('.qtip-content'),
+          text: $(this).find('.qtip-content'),
         },
         position: {
           my: 'top center',
