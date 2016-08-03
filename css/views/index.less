@@ -157,24 +157,20 @@
 				overflow: visible;
 				margin-bottom: 1rem;
 
-				.btn {
-					margin-top: -6px;
-
-					&.active,
-					&:hover { &:extend(.btn.tertiary); }
-					&:not(.active):not(:hover) { color: @color-medium; }
-				}
+				.btn-group { vertical-align: top; }
 
 				.heading {
 					.font-s1;
 					.subheading-caps;
 					color: @color-tertiary;
 					float: left;
+					line-height: 28px;
 				}
 
 				.cta-try {
 					.font-s2;
 					float: right;
+					line-height: 28px;
 				}
 			}
 
@@ -215,7 +211,7 @@
 					&:after,
 					&:before {
 						.transform(rotate(360deg)); //antialiasing webkit
-						.position(absolute, 1.875rem, auto, auto, 0);
+						.position(absolute, 2.125rem, auto, auto, 0);
 						content: '';
 						display: block;
 
@@ -245,7 +241,6 @@
 
 				.output-content {
 					clear: both;
-					margin-top: 4px;
 				}
 			}
 		}
