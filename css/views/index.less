@@ -28,17 +28,17 @@
 		.image {
 			display: inline-block;
 			float: left;
-			height: 4rem;
+			height: 3rem;
 			margin-bottom: 1rem;
-			width: 4rem;
-			margin-right: 1.5rem;
+			width: 3rem;
+			margin-right: 1rem;
 			margin-top: .25rem;
 
 			@media screen and (min-width: @breakpoint) {
 				float: none;
-				height: 6rem;
+				height: 4rem;
 				margin-top: 0;
-				width: 6rem;
+				width: 4rem;
 			}
 		}
 
@@ -57,20 +57,29 @@
 
 	.picker-carousel {
 		.inline-block-whitespace;
-		text-align: center;
+		.std-xpadding;
+		text-align: left;
+		@media screen and (min-width: @breakpoint) { text-align: center; }
 		margin-bottom: 1.5rem;
 
 		.item-picker {
 			.transition(all 100ms ease-out);
 			cursor: pointer;
 			display: inline-block;
-			margin: 0 .625rem;
 			height: 4rem;
+			text-align: center;
 			width: 4rem;
+
+			margin-right: .625rem;
+			margin-bottom: .625rem;
+			@media screen and (min-width: @breakpoint) {
+				margin-left: .625rem;
+				margin-right: .625rem;
+			}
 
 			&.active,
 			&:hover {
-				background: @color-light;
+				background: @color-mediumlight;
 
 				.title-item { color: @color-darkest; }
 			}
@@ -101,17 +110,15 @@
 		box-shadow: rgba(0,0,0,.1) 0 1px 3px 0;
 
 		&:before {
-			.position(absolute, 0,50%,0,auto, 1px);
+			@media screen and (min-width: @breakpoint) {
+				.position(absolute, 0,50%,0,auto, 1px);
+			}
+
 			content: '';
-			background: @color-light;
+			background: @color-mediumlight;
 			z-index: 0;
 		}
-		&:after {
-			.position(absolute, 0,50%,0,auto, 1px);
-			content: '';
-			background: @color-light;
-			z-index: 0;
-		}
+
 
 		.slide {
 			position: relative;
@@ -121,7 +128,17 @@
 				.std-xpadding;
 				.std-ypadding;
 				float: left;
-				width: 50%;
+				width: 100%;
+
+				@media screen and (min-width: @breakpoint) {
+					width: 50%;
+				}
+			}
+
+			.snippet {
+				@media screen and (max-width: (@breakpoint - 1px)) {
+					border-bottom: 1px solid @color-mediumlight;
+				}
 			}
 
 			.topcap {
@@ -182,34 +199,37 @@
 			.output {
 				position: relative;
 
-				&:after,
-				&:before {
-					.transform(rotate(360deg)); //antialiasing webkit
-					.position(absolute, 1.875rem, auto, auto, 0);
-					content: '';
-					display: block;
+				@media screen and (min-width: @breakpoint) {
+					//triangle styles for desktop
+					&:after,
+					&:before {
+						.transform(rotate(360deg)); //antialiasing webkit
+						.position(absolute, 1.875rem, auto, auto, 0);
+						content: '';
+						display: block;
 
-					//triangle
-					width: 0;
-					height: 0;
-					border-style: solid;
-				}
+						//triangle
+						width: 0;
+						height: 0;
+						border-style: solid;
+					}
 
-				&:before {
-					//triangle
-					border-width: 9px 0 9px 9px;
-					border-color: transparent transparent transparent @color-lightest;
+					&:before {
+						//triangle
+						border-width: 9px 0 9px 9px;
+						border-color: transparent transparent transparent @color-lightest;
 
-					left: -1px;
-					z-index: 1;
-				}
+						left: -1px;
+						z-index: 1;
+					}
 
-				&:after {
-					border-width: 10px 0 10px 10px;
-					border-color: transparent transparent transparent @color-light;
+					&:after {
+						border-width: 10px 0 10px 10px;
+						border-color: transparent transparent transparent @color-light;
 
-					margin-top: -1px;
-					z-index: 0;
+						margin-top: -1px;
+						z-index: 0;
+					}
 				}
 
 				.output-content {
