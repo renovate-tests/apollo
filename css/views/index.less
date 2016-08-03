@@ -122,6 +122,10 @@
 
 		.slide {
 			position: relative;
+			display: none;
+			&.active {
+				display: block;
+			}
 
 			.snippet,
 			.output {
@@ -138,6 +142,13 @@
 			.snippet {
 				@media screen and (max-width: (@breakpoint - 1px)) {
 					border-bottom: 1px solid @color-mediumlight;
+				}
+
+				.client, .server {
+					display:none;
+					&.active {
+						display: block;
+					}
 				}
 			}
 

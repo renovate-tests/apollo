@@ -96,7 +96,7 @@ $(function() {
   });
 
 
-    $('#optics-form').submit(function(e) {
+  $('#optics-form').submit(function(e) {
     e.preventDefault();
     var email = e.target.email.value;
     var firstname = e.target.firstname.value;
@@ -109,5 +109,22 @@ $(function() {
     analytics.identify(email, {email: email, firstName: firstname, lastName: lastname, company: company, Message__c: message, Existing_GraphQL_Language__c: existingGraphQLLanguage, LatestFormSubmit: latestformsubmit});
     $('.consultation-form').addClass('confirmed');
     analytics.track('web.apollo-optics');
+  });
+
+  $('[data-picker] [data-target]').click(function(e) {
+    var $item = $(this);
+    var target = $item.data('target');
+
+    $item.closest('[data-picker]')
+      .find('[data-target]').removeClass('active');
+    $item.addClass('active');
+
+    $item.closest('[data-picker]')
+      .find('[data-name]').removeClass('active')
+      .filter('[data-name=' + target + ']').addClass('active');
+
+    // ensure any child pickers are selected first
+    $item.closest('[data-picker]')
+      .find('[data-picker] [data-target]:first-child').click();
   });
 });
