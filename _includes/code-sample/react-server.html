@@ -1,0 +1,31 @@
+<pre><code class="javascript">REACT server import ApolloClient, { createNetworkInterface } from 'apollo-client';
+
+const networkInterface = createNetworkInterface('/graphql');
+const token = 'first-token-value';
+const token2 = 'second-token-value';
+
+const exampleWare1 = {
+	applyMiddleware(req, next) {
+		if (!req.options.headers) {
+			req.options.headers = {};  // Create the headers object if needed.
+		}
+		req.options.headers.authorization = token;
+		next();
+	}
+}
+
+const exampleWare2 = {
+	applyMiddleware(req, next) {
+		if (!req.options.headers) {
+			req.options.headers = {};  // Create the headers object if needed.
+		}
+		req.options.headers.authorization = token2;
+		next();
+	}
+}
+
+networkInterface.use([exampleWare1, exampleWare2]);
+
+const client = new ApolloClient({
+	networkInterface,
+});</code></pre>

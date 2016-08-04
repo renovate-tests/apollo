@@ -69,157 +69,38 @@ description: Apollo is an incrementally-adoptable GraphQL data stack that gives 
         <img src="img/logo-android.svg" class="image"/>
         <div class="title-item">Java</div>
       </div>
-      <div class="item-picker" data-target="objc">
+      <div class="item-picker" data-target="objective-c">
         <img src="img/logo-apple.svg" class="image"/>
         <div class="title-item">Obj-C</div>
       </div>
     </div>
 
     <div class="slides-carousel">
-      <div class="slide active" data-name="react">
-        <div class="snippet" data-picker>
-          <div class="topcap">
-            <div class="btn-group toggle">
-              <div class="btn ancillary small active" data-target="client">Client</div>
-              <div class="btn ancillary small" data-target="server">Server</div>
-            </div>
-          </div>
-          <div class="client active" data-name="client">
-            <pre><code class="javascript">import ApolloClient, { createNetworkInterface } from 'apollo-client';
+      {% include code-sample/slide.html
+        language="react"
+        link-demo="google.com"
+        active="active"
+      %}
 
-            const networkInterface = createNetworkInterface('/graphql');
+      {% include code-sample/slide.html
+        language="angular"
+        link-demo="test.com"
+      %}
 
-            networkInterface.use([{
-              applyMiddleware(req, next) {
-                if (!req.options.headers) {
-                  req.options.headers = {};  // Create the header object if needed.
-                }
-                req.options.headers.authorization = localStorage.getItem('token') ? localStorage.getItem('token') : null;
-                next();
-              }
-            }]);
+      {% include code-sample/slide-empty.html
+        language="swift"
+        link-demo="github.com"
+      %}
 
-            const client = new ApolloClient({
-              networkInterface,
-            });</code></pre>
-          </div>
+      {% include code-sample/slide-empty.html
+        language="java"
+        link-demo="github.com"
+      %}
 
-          <div class="server" data-name="server">
-            <pre><code class="javascript">import ApolloClient, { createNetworkInterface } from 'apollo-client';
-
-            const networkInterface = createNetworkInterface('/graphql');
-            const token = 'first-token-value';
-            const token2 = 'second-token-value';
-
-            const exampleWare1 = {
-              applyMiddleware(req, next) {
-                if (!req.options.headers) {
-                  req.options.headers = {};  // Create the headers object if needed.
-                }
-                req.options.headers.authorization = token;
-                next();
-              }
-            }
-
-            const exampleWare2 = {
-              applyMiddleware(req, next) {
-                if (!req.options.headers) {
-                  req.options.headers = {};  // Create the headers object if needed.
-                }
-                req.options.headers.authorization = token2;
-                next();
-              }
-            }
-
-            networkInterface.use([exampleWare1, exampleWare2]);
-
-            const client = new ApolloClient({
-              networkInterface,
-            });</code></pre>
-          </div>
-        </div>
-        <div class="output">
-          <div class="topcap">
-            <div class="heading">Output</div>
-            <a class="cta-try link primary">Try it out<span class="icon-arrow-right"></span></a>
-          </div>
-          <div class="output-content">
-            networkInterface (Optional, defaults to an HTTP interface that points to /graphql) The network interface to use when sending GraphQL queries to the server. Create this using createNetworkInterface, or make a totally custom one.
-            dataIdFromObject (Optional) A function to use during result normalization to determine the IDs of result objects. Function signature should be (result: Object) => string. Learn more about normalization.
-            reduxRootKey (Optional, 'apollo' by default) The key under which Apollo data will be stored in the Redux store. Read more about integrating with Redux. If you aren’t integrating with an existing Redux store, don’t worry about this.
-            shouldBatch (Optional, false by default) A boolean value that specifies whether Apollo Client should batch queries together into one request. If you pass this option, the network interface must support batching. Read more about query batching.
-          </div>
-        </div>
-      </div>
-
-      <div class="slide" data-name="angular">
-        <div class="snippet" data-picker>
-          <div class="topcap">
-            <div class="btn-group toggle">
-              <div class="btn ancillary small active" data-target="client">Client</div>
-              <div class="btn ancillary small" data-target="server">Server</div>
-            </div>
-          </div>
-          <div class="client active"  data-name="client">
-            <pre><code class="javascript">import ApolloClient, { createNetworkInterface } from 'apollo-client';
-
-            ANGULAR CODE!</code></pre>
-          </div>
-
-          <div class="server"  data-name="server">
-            <pre><code class="javascript">import ApolloClient, { createNetworkInterface } from 'apollo-client';
-
-            const networkInterface = createNetworkInterface('/graphql');
-            const token = 'first-token-value';
-            const token2 = 'second-token-value';
-
-            const exampleWare1 = {
-              applyMiddleware(req, next) {
-                if (!req.options.headers) {
-                  req.options.headers = {};  // Create the headers object if needed.
-                }
-                req.options.headers.authorization = token;
-                next();
-              }
-            }
-
-            const exampleWare2 = {
-              applyMiddleware(req, next) {
-                if (!req.options.headers) {
-                  req.options.headers = {};  // Create the headers object if needed.
-                }
-                req.options.headers.authorization = token2;
-                next();
-              }
-            }
-
-            networkInterface.use([exampleWare1, exampleWare2]);
-
-            const client = new ApolloClient({
-              networkInterface,
-            });</code></pre>
-          </div>
-        </div>
-        <div class="output">
-          <div class="topcap">
-            <div class="heading">Output</div>
-            <a class="cta-try link primary">Try it out<span class="icon-arrow-right"></span></a>
-          </div>
-          <div class="output-content">
-            networkInterface (Optional, defaults to an HTTP interface that points to /graphql) The network interface to use when sending GraphQL queries to the server. Create this using createNetworkInterface, or make a totally custom one.
-            dataIdFromObject (Optional) A function to use during result normalization to determine the IDs of result objects. Function signature should be (result: Object) => string. Learn more about normalization.
-            reduxRootKey (Optional, 'apollo' by default) The key under which Apollo data will be stored in the Redux store. Read more about integrating with Redux. If you aren’t integrating with an existing Redux store, don’t worry about this.
-            shouldBatch (Optional, false by default) A boolean value that specifies whether Apollo Client should batch queries together into one request. If you pass this option, the network interface must support batching. Read more about query batching.
-          </div>
-        </div>
-      </div>
-      <div class="slide empty" data-name="swift">
-        <div class="contribute">
-          <div class="title-contribute">Help launch Apollo on Android</div>
-          <div class="message-contribute">Apollo for Android is not available yet. Help accelerate our efforts by contributing to the open source project.</div>
-          <a class="btn primary round small">Learn more</a>
-        </div>
-      </div>
+      {% include code-sample/slide-empty.html
+        language="objective-c"
+        link-demo="github.com"
+      %}
     </div>
   </div>
 </section>

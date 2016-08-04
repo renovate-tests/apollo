@@ -1,0 +1,4 @@
+REACT output networkInterface (Optional, defaults to an HTTP interface that points to /graphql) The network interface to use when sending GraphQL queries to the server. Create this using createNetworkInterface, or make a totally custom one.
+dataIdFromObject (Optional) A function to use during result normalization to determine the IDs of result objects. Function signature should be (result: Object) => string. Learn more about normalization.
+reduxRootKey (Optional, 'apollo' by default) The key under which Apollo data will be stored in the Redux store. Read more about integrating with Redux. If you aren’t integrating with an existing Redux store, don’t worry about this.
+shouldBatch (Optional, false by default) A boolean value that specifies whether Apollo Client should batch queries together into one request. If you pass this option, the network interface must support batching. Read more about query batching.
