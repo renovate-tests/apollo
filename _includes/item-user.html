@@ -1,0 +1,26 @@
+<a
+  class="item-user {% if include.username == '' %}show-desktop{% endif %}"
+  href="https://github.com/{% if include.username != '' %}{{ include.username }}{% else %}apollostack/contribute{% endif %}"
+  target="_blank">
+  <span class="avatar">
+    {% if include.username != '' %}
+      <img src="https://github.com/{{ include.username }}.png?size=120" class="image" alt="{{ include.username }}"/>
+    {% else %}
+      <img src="img/illustration-avatar-female.svg" class="image"/>
+    {% endif %}
+  </span>
+  <span class="meta">
+    <span class="nicename">
+      {% if include.username != '' %}
+        {{ include.nicename }}
+      {% else %}
+        You?
+      {% endif %}
+    </span>
+    {% if include.username != '' %}
+      <span class="username">{{ include.username }}</span>
+    {% else %}
+      <span class="username link primary">Learn more<span class="icon-arrow-right"></span></span>
+    {% endif %}
+  </span>
+</a>
