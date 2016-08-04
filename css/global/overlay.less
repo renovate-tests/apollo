@@ -41,17 +41,22 @@
 
 .overlay-content {
   .page-margins;
-  .position(absolute, 45%, 0, auto, 0);
-  margin-top: -160px / 2;
+  .position(absolute, 3rem, 0, auto, 0);
+  @media screen and (min-width: @breakpoint) {
+    margin-top: -160px / 2;
+    top: 45%;
+  }
 
   .overlay-panel {
+    .std-xpadding;
     margin: 0 auto;
-    width: 400px;
+    max-width: 400px;
   }
 
   .overlay-heading {
-    .std-xpadding;
+    margin-top: 3rem;
     text-align: center;
+    @media screen and (min-width: @breakpoint) { margin-top: 0; }
   }
 
   .title-overlay {
@@ -64,4 +69,45 @@
       .font-l2;
     }
   }
+
+  .logo {
+    display: block;
+    height: 2.5rem;
+    margin-bottom: .75rem;
+
+    svg {
+      display: block;
+      height: 100%;
+      width: auto;
+
+      path {
+        fill: @color-ancillary;
+      }
+    }
+  }
+
+  .overlay-subheading {
+    .subheading-caps;
+    .font-s1;
+    color: @color-mediumdark;
+    margin-bottom: .5rem;
+  }
+
+  .menu {
+    margin-bottom: 3rem;
+
+    > a {
+      .font-m2;
+      .type-light;
+      .link(@color-darkest);
+      display: block;
+      margin-bottom: .75rem;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border-bottom: 1px solid @color-medium;
+    }
+  }
+
 }
