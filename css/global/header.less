@@ -17,8 +17,8 @@ header {
 	}
 
 	&.short {
-		padding-top: 7.5rem;
-		padding-bottom: 5rem;
+		padding-top: 5rem;
+		padding-bottom: 3rem;
 		width: 100%;
 
 		@media screen and (min-width: @breakpoint) {
@@ -144,11 +144,15 @@ header.support {
 	.pitch-follow-up {
 		.page-margins;
 		position: relative;
+		margin-bottom: -3rem;
 		z-index: 1;
 
 		.display(flex);
 		.flex-direction(column);
-		@media screen and (min-width: @breakpoint) { .flex-direction(row); }
+		@media screen and (min-width: @breakpoint) {
+			.flex-direction(row);
+			padding-top: 1.5rem;
+		}
 
 		.item-feature {
 			.flex(1);
