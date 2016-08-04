@@ -116,6 +116,7 @@ $(function() {
     analytics.track('web.apollo-optics');
   });
 
+  // the homepage code sample widget
   $('[data-picker] [data-target]').click(function(e) {
     var $item = $(this);
     var target = $item.data('target');
@@ -132,4 +133,8 @@ $(function() {
     $item.closest('[data-picker]')
       .find('[data-picker] [data-target]:first-child').click();
   });
+
+  // tracking contribute links
+  var link = document.getElementsByClassName('js-contribute-link');
+  analytics.trackLink(link, 'web.apollo-clicked-contribute');
 });
