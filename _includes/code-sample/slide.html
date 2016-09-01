@@ -7,7 +7,8 @@
 			</div>
 		</div>
 		<div class="client active" data-name="client">
-			{% include code-sample/{{include.language}}-client.html %}
+			{% capture my_include %}{% include code-sample/{{include.language}}-client.html %}{% endcapture %}
+			<pre><code>{{ my_include | xml_escape }}</code></pre>
 		</div>
 
 		<div class="server" data-name="server">

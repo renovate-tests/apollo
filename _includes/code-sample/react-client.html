@@ -1,17 +1,108 @@
-<pre><code class="javascript">REACT clientimport ApolloClient, { createNetworkInterface } from 'apollo-client';
+import React, { Component } from 'react';
+import ApolloClient from 'apollo-client';
+import { graphql, ApolloProvider } from 'react-apollo';
+import gql from 'graphql-tag';
 
-const networkInterface = createNetworkInterface('/graphql');
+import './App.css';
+import InBrowserNetworkInterface from './in-browser-network-interface';
+import schema from './schema';
 
-networkInterface.use([{
-	applyMiddleware(req, next) {
-		if (!req.options.headers) {
-			req.options.headers = {};  // Create the header object if needed.
-		}
-		req.options.headers.authorization = localStorage.getItem('token') ? localStorage.getItem('token') : null;
-		next();
-	}
-}]);
-
+const networkInterface = new InBrowserNetworkInterface({ schema });
 const client = new ApolloClient({
-	networkInterface,
-});</code></pre>
+  networkInterface,
+  dataIdFromObject: r => r.id,
+});
+
+class PostUpvoter extends Component {
+  constructor() {
+    super();
+    this.state = { postId: false };
+  }
+  onPostIdChanged(event) {
+    this.setState({ postId: event.target.value });
+  }
+  onUpvotePost(event) {
+    event.preventDefault();
+    this.props.mutate({ variables: { postId: this.state.postId } });
+  }
+  render() {
+    const { posts } = this.props;
+
+    return (
+      <form onSubmit={this.onUpvotePost.bind(this)}>
+        <select onChange={this.onPostIdChanged.bind(this)} value={this.state.postId}>
+          <option value={false} disabled>Select a post</option>
+          {posts.map(post =>
+            <option key={post.id} value={post.id}>{post.title}</option>
+          )}
+        </select>
+        <button disabled={!this.state.postId}>Upvote!</button>
+      </form>
+    )
+  }
+}
+
+const upvotePost = gql`
+  mutation upvotePost($postId: Int) {
+    upvotePost(postId: $postId) {
+      id
+      votes
+    }
+  }
+`;
+const PostUpvoterWithMutation = graphql(upvotePost)(PostUpvoter);
+
+function PostList({ loading, posts }) {
+  if (loading) {
+    return <div>Loading</div>;
+  } else {
+    return (
+      <div>
+        <ul>
+          {posts.map(post =>
+            <li key={post.id}>
+              {post.title} by {' '}
+              {post.author.firstName} {post.author.lastName} {' '}
+              ({post.votes} votes)
+            </li>
+          )}
+        </ul>
+        <PostUpvoterWithMutation posts={posts} />
+      </div>
+    );
+  }
+}
+
+const allPosts = gql`
+  query allPosts {
+    posts {
+      id
+      title
+      votes
+      author {
+        id
+        firstName
+        lastName
+      }
+    }
+  }
+`
+
+const PostListWithData = graphql(allPosts, {
+  props: ({data: { loading, posts }}) => ({
+    loading,
+    posts,
+  }),
+})(PostList);
+
+class App extends Component {
+  render() {
+    return (
+      <ApolloProvider client={client}>
+        <PostListWithData />
+      </ApolloProvider>
+    );
+  }
+}
+
+export default App;

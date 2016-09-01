@@ -1,31 +1,33 @@
-<pre><code class="javascript">REACT server import ApolloClient, { createNetworkInterface } from 'apollo-client';
-
-const networkInterface = createNetworkInterface('/graphql');
-const token = 'first-token-value';
-const token2 = 'second-token-value';
-
-const exampleWare1 = {
-	applyMiddleware(req, next) {
-		if (!req.options.headers) {
-			req.options.headers = {};  // Create the headers object if needed.
-		}
-		req.options.headers.authorization = token;
-		next();
-	}
+<pre><code class="javascript">type Author {
+  id: Int! # the ! means that every author object _must_ have an id
+  firstName: String
+  lastName: String
+  posts: [Post] # the list of Posts by this author
 }
 
-const exampleWare2 = {
-	applyMiddleware(req, next) {
-		if (!req.options.headers) {
-			req.options.headers = {};  // Create the headers object if needed.
-		}
-		req.options.headers.authorization = token2;
-		next();
-	}
+type Post {
+  id: Int!
+  title: String
+  author: Author
+  votes: Int
 }
 
-networkInterface.use([exampleWare1, exampleWare2]);
+# the schema allows the following query:
+type Query {
+  posts: [Post]
+}
 
-const client = new ApolloClient({
-	networkInterface,
-});</code></pre>
+# this schema allows the following mutation:
+type Mutation {
+  upvotePost (
+    postId: Int!
+  ): Post
+}
+
+# we need to tell the server which types represent the root query
+# and root mutation types. We call them RootQuery and RootMutation by convention.
+schema {
+  query: Query
+  mutation: Mutation
+}
+</code></pre>
