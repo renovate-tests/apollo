@@ -7,12 +7,12 @@
 			</div>
 		</div>
 		<div class="client active" data-name="client">
-			{% capture my_include %}{% include code-sample/{{include.language}}-client.html %}{% endcapture %}
+			{% capture my_include %}{% include code-sample/{{include.language}}/client-step{{include.step}}.html %}{% endcapture %}
 			<pre><code>{{ my_include | xml_escape }}</code></pre>
 		</div>
 
 		<div class="server" data-name="server">
-			{% include code-sample/{{include.language}}-server.html %}
+			{% include code-sample/{{include.language}}/schema-step{{include.step}}.html %}
 		</div>
 	</div>
 	<div class="output">
@@ -21,7 +21,7 @@
 			<a class="cta-try link primary" href="{{ include.link-demo }}" target="_blank">Try it out<span class="icon-arrow-right"></span></a>
 		</div>
 		<div class="output-content">
-			<iframe src="http://dev.apollodata.com/frontpage-react-app/">
+			<iframe src="http://dev.apollodata.com/frontpage-{{include.language}}-app-step{{include.step}}/"></iframe>
 		</div>
 	</div>
 </div>
