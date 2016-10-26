@@ -1,5 +1,5 @@
 # Apollo site
-Available at [apollostack.com](http://apollostack.com).
+Available at [apollodata.com](http://apollodata.com).
 
 ## How to run the site
 1. Open index.html
