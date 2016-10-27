@@ -842,6 +842,15 @@ border-bottom: 1px solid #eeeeee;
   display: inline-block;
   width: 100%;
 }
+
+.link-default-green-tracked{
+  color: #2ca699;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
 .support-servers{
   display: inline-block;
   width: 100%;

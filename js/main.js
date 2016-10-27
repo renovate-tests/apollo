@@ -1,5 +1,4 @@
 $(function() {
-  // Designveloper Dev
   wow = new WOW({
     boxClass:     'wow',      // default
     animateClass: 'animated', // default
@@ -24,9 +23,20 @@ $(function() {
     $('.apollo-testimonial').unslider();
   }
 
-  // End Designveloper Dev
-
   FastClick.attach(document.body);
+
+//track optics clicks
+  $('.btn-primary-apollo').click(function() {
+analytics.track("web.optics-signup", {
+});
+  });
+  
+  $('.link-default-green-tracked').click(function() {
+analytics.track("web.optics-signup", {
+});
+  });
+
+
 
   $('.page').focus();
   if (location.hash == "#slack"){
