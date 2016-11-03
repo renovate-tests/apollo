@@ -95,12 +95,15 @@ analytics.track("web.optics-signup", {
     var firstname = e.target.firstname.value;
     var lastname = e.target.lastname.value;
     var company = e.target.company.value;
-    var message = e.target.message.value;
+    var message = 'Interested in training: '+ e.target.training.checked + '\n' + 'Interested in developer support: '+ e.target.developer.checked + '\n\n' + e.target.message.value;
     var latestformsubmit = 'Apollo Developer Support';
 
+
     analytics.identify(email, {email: email, firstName: firstname, lastName: lastname, company: company, Message__c: message, LatestFormSubmit: latestformsubmit});
-    $('.consultation-form').addClass('confirmed');
     analytics.track('web.apollo-devsub');
+
+     $('.consultation-form').addClass('submitted');
+     $('.title-form').text("Thanks, we'll reach out to you soon!");
   });
 
 

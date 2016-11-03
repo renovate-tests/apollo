@@ -206,6 +206,10 @@ header .right-header{
   width:  100%;
   margin: 0 auto;
 }
+.submitted.request-graphQL-help .content-form{
+  display: none;
+}
+
 .form-request{
   display: inline-block;
   width: 100%;
