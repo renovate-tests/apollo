@@ -95,7 +95,7 @@ analytics.track("web.optics-signup", {
     var firstname = e.target.firstname.value;
     var lastname = e.target.lastname.value;
     var company = e.target.company.value;
-    var message = 'Interested in training: '+ e.target.training.checked + '\n' + 'Interested in developer support: '+ e.target.developer.checked + '\n\n' + e.target.message.value;
+    var message = 'Interested in training: '+ e.target.training.checked + '<br>' + 'Interested in developer support: '+ e.target.developer.checked + '<br><br>' + e.target.message.value;
     var latestformsubmit = 'Apollo Developer Support';
 
 
